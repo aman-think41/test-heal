@@ -5,7 +5,7 @@ export const headerData = {
   logo: "THINK41",
   menuItems: [
     { text: "About Us", href: "/aboutus" },
-    { text: "Careers", href: "https://think.recruit41.com/"},
+    { text: "Careers", href: "https://think.reccgfgcgfcruit41.com/"},
     { text: "Contact Us", href: "https://forms.gle/T2RiTY2duEPnjGk3A" }
   ]
 };
