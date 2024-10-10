@@ -1,0 +1,66 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+
+# Prevent indexing of search results
+Disallow: /search
+
+# Allow CSS, JS, and image files
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.svg$
+
+# Prevent crawling of potential sensitive areas
+Disallow: /cgi-bin/
+Disallow: /tmp/
+
+# Sitemap location
+Sitemap: https://www.think41.com/sitemap.xml
+
+# Crawl-delay directive (adjust as needed)
+# Note: Not all bots respect this, including Googlebot
+Crawl-delay: 10
+
+# Additional rules for specific bots
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: Bingbot
+Disallow: /nobingbot/
+
+# Prevent social media crawlers from indexing certain pages
+User-agent: Twitterbot
+Disallow: /no-twitter-cards/
+
+User-agent: facebookexternalhit
+Disallow: /no-facebook-preview/
+
+# Prevent indexing of any potential user-specific or dynamic content
+Disallow: /user/
+Disallow: /account/
+Disallow: /cart/
+Disallow: /checkout/
+
+# Allow indexing of important pages
+Allow: /about
+Allow: /contact
+Allow: /products
+Allow: /services
+
+# Rules for all bots
+User-agent: *
+Disallow: /user/
+Disallow: /account/
+Disallow: /cart/
+Disallow: /checkout/
+Allow: /about
+Allow: /contact
+Allow: /products
+Allow: /services

@@ -1,0 +1,81 @@
+body, html {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.slideshow-container {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  background: white;
+}
+
+.slides-wrapper {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  width: 300%; /* 100% * number of slides */
+}
+
+.slide {
+  width: 33.333%; /* 100% / number of slides */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.slide-content {
+  position: relative;
+  text-align: center;
+  color: black;
+  width: 90%;
+  max-width: 600px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.wave-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Take full width */
+  height: 100%; /* Take full height of the container */
+  background-image: url('../assets/wave.svg');
+  background-size: cover; /* Ensure it covers the entire container */
+  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
+  transition: background-position 1s ease-in-out; /* Smooth transition for the background */
+}
+
+.line-svg {
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slide-content {
+    width: 95%;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-content {
+    width: 100%;
+    padding: 6px;
+  }
+}
