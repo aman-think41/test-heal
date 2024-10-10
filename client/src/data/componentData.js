@@ -5,7 +5,7 @@ export const headerData = {
   logo: "THINK41",
   menuItems: [
     { text: "About Us", href: "/aboutus" },
-    { text: "Careers", href: "https://think.reccgfgcgfcruit41.com/"},
+    { text: "Careers", href: "https://think.recruit41.com/"},
     { text: "Contact Us", href: "https://forms.gle/T2RiTY2duEPnjGk3A" }
   ]
 };
@@ -117,7 +117,7 @@ export const insightsData = {
           },
           {
             type: "paragraph",
-            text: "Sri: Fine-tuning is a balancing act. Early in the process, when you're just testing use cases and hypotheses, I recommend not starting with fine-tuning. Focus on using the best available models for your tasks. Once you’ve gathered enough data—either through traditional methods or synthetic data generation—then consider fine-tuning."
+            text: "Sri: Fine-tuning is a balancing act. Early in the process, when you’re just testing use cases and hypotheses, I recommend not starting with fine-tuning. Focus on using the best available models for your tasks. Once you’ve gathered enough data—either through traditional methods or synthetic data generation—then consider fine-tuning."
           },
           {
             type: "paragraph",
