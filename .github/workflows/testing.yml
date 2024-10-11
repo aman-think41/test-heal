@@ -54,7 +54,7 @@ jobs:
         DISPLAY: :99  # Required for headless testing
       run: |
         cd ./client/tests
-        python run_testing_pipeline.py > ../logs/main_test.log 2>&1
+        python run_testing_pipeline.py > ../test-results/main_test.log 2>&1
 
     - name: Archive Selenium Test Results
       if: always()  # Always upload artifacts even if the test fails
