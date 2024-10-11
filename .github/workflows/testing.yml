@@ -53,7 +53,7 @@ jobs:
       env:
         DISPLAY: :99  # Required for headless testing
       run: |
-        cd ./client
+        cd ./client/tests
         python run_testing_pipeline.py > ../logs/main_test.log 2>&1
 
     - name: Archive Selenium Test Results
