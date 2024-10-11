@@ -15,6 +15,7 @@ jobs:
       max-parallel: 4
       matrix:
         python-version: [3.8]
+        node-version: [18]
       
     services:
       selenium:
@@ -27,6 +28,36 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        cache-dependency-path: client/package-lock.json
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install Node Dependencies
+      run: |
+        cd ./client
+        npm ci
+
+    - name: Build the Project
+      run: |
+        cd ./client
+        npm run build
+
+    - name: Start Application Server
+      run: |
+        cd ./client
+        nohup npm run preview &  # Start Vite preview server in the background
+      env:
+        HOST: "0.0.0.0"  # Make the server accessible from all interfaces (needed for GitHub runner)
+        PORT: 4173       # Define the port to be used for preview mode
+
+    - name: Wait for the Server to be Ready
+      run: |
+        # Wait until the server responds on port 4173
+        timeout 30s bash -c 'until echo > /dev/tcp/localhost/4173; do sleep 1; done'
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
