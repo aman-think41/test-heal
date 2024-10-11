@@ -42,10 +42,10 @@ function App() {
         
         {/* Define the route for the ReadMore page */}
         <Route path="/ReadmoreBlogs" element={<ReadMore />} />
-        <Route path='/aboutus' element={<Aboutus/>}/>
+        <Route path="/aboutus" element={<Aboutus/>}/>
       </Routes>
     </Router>
   );
 }
 
-export default App;
+export default App;  
