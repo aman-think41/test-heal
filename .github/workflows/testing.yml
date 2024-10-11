@@ -62,4 +62,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: selenium-test-results
-        path: ./client/logs/  # Upload the `test-results` directory as an artifact
+        path: ./client/tests/test-results/  # Upload the `test-results` directory as an artifact
