@@ -9,7 +9,7 @@ import Recruit41 from './components/Recruit41';
 import Insights from './components/Insights';
 import Footer from './components/Footer';
 import ReadMore from './components/Readmore';
-import Aboutus from './components/Aboutus';
+import Aboutus from './components/Aboutus'; // Ensure Aboutus is imported
 import './App.css';
 import {
   headerData,
