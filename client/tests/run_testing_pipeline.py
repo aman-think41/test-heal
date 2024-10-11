@@ -9,7 +9,8 @@ import unittest
 # cicd
 url = "http://localhost:4173"
 # local
-url = "http://localhost:5173"
+# url = "http://localhost:5173"
+
 chrome_options = Options()
 chrome_options.add_argument("--headless")  # Run in headless mode
 chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
