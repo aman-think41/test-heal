@@ -38,24 +38,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install selenium
 
-    - name: Install Chrome
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y google-chrome-stable
-
-    - name: Install ChromeDriver
-      run: |
-        sudo apt-get install -yqq unzip
-        wget -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
-        unzip /tmp/chromedriver.zip -d /usr/local/bin/
-
     - name: Run Selenium Tests
       env:
         DISPLAY: :99  # Required for headless testing
       run: |
         cd ./client/tests
         python dir.py
-        python run_testing_pipeline.py > ./test-results/main_test.log 2>&1
+        python run_testing_pipeline.py
+        # python run_testing_pipeline.py > ./test-results/main_test.log 2>&1
 
     - name: Archive Selenium Test Results
       if: always()  # Always upload artifacts even if the test fails
