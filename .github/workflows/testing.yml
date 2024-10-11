@@ -55,7 +55,7 @@ jobs:
       run: |
         cd ./client/tests
         python dir.py
-        python run_testing_pipeline.py > ../test-results/main_test.log 2>&1
+        python run_testing_pipeline.py > ./test-results/main_test.log 2>&1
 
     - name: Archive Selenium Test Results
       if: always()  # Always upload artifacts even if the test fails
