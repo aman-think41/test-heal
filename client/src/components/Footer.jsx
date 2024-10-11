@@ -89,6 +89,7 @@ export default function Footer({ data }) {
             </h3>
             <div className="text-sm space-y-2">
               <address className="not-italic">
+                {/* <p>{data.addressLabel}:</p> */}
                 {data.contactInfo.address}
               </address>
               <p className="flex items-center gap-2">
@@ -102,4 +103,91 @@ export default function Footer({ data }) {
               </p>
               <p className="flex items-center gap-2">
                 <img src={phone} alt="phone" />
-                {data.phoneLabel}:{
+                {data.phoneLabel}:{" "}
+                <a
+                  href={`tel:${data.contactInfo.phone}`}
+                  className="hover:text-orange-500"
+                >
+                  {data.contactInfo.phone}
+                </a>
+              </p>
+            </div>
+          </div>
+
+          {/* Map Section */}
+          <div className="lg:col-span-1 lg:ml-24">
+            <h3 className= "lg:ml-0 ml-5 lg:text-2xl md:text-1xl sm:text-xl text-orange-500 font-semibold mb-1">
+              Find us here
+            </h3>
+            <a
+              href={data.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-36 h-36 relative flex justify-center items-center cursor-pointer" // Flex applied here
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div
+                className={`transition-transform duration-300 ease-in-out ${
+                  isEnlarged ? "scale-125" : "scale-100"
+                }`}
+              >
+                <img
+                  src={map}
+                  alt="THINK41 office location map"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div
+                className={`absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 ${
+                  isEnlarged ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <span className="text-white text-lg font-semibold">
+                  {data.mapViewText}
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-10 flex justify-center items-center mb-6">
+          <div className="flex space-x-10">
+            {data.socialMedia.map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-orange-500 transition-colors"
+                aria-label={social.name}
+              >
+                {social.name === "Facebook" && (
+                  <img src={facebook} alt="facebook" />
+                )}
+                {social.name === "Instagram" && (
+                  <img src={instagram} alt="instagram" />
+                )}
+                {social.name === "LinkedIn" && (
+                  <img src={linkdin} alt="linkedin" />
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center text-center text-xs sm:text-sm text-gray-400">
+          <p>{data.copyright} &nbsp;</p>
+          <p>
+            <Link
+              to={data.privacyPolicy.href}
+              className="hover:text-orange-500 transition-colors"
+            >
+              {data.privacyPolicy.text}
+            </Link>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
